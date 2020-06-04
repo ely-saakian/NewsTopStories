@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img src='@/assets/NewYorkTimes.svg' alt='NYT Logo' />
+    <img src='../assets/NewYorkTimes.svg' alt='NYT Logo' />
   </header>
 </template>
 

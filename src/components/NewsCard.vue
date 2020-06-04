@@ -6,7 +6,7 @@
             :src="article.multimedia[3].url"
             :alt="article.multimedia[3].caption"
             >
-            <img v-else src="@/assets/NoImage.png" alt="Image Not Available">
+            <img v-else src="../assets/NoImage.png" alt="Image Not Available">
             <div class="section-name">{{article.section}}</div>
         </div>
         <div class="body">
