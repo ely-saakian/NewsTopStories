@@ -51,6 +51,12 @@ export default {
   font-family: Roboto, sans-serif;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 .cards-container {
   display: flex;
   flex-direction: column;
