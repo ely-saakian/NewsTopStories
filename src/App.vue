@@ -17,6 +17,9 @@ import Search from './components/Search'
 export default {
   components: {
     Header, Footer, Search
+  },
+  mounted () {
+    this.$router.push({ name: 'home' })
   }
 }
 </script>
