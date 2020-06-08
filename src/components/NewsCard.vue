@@ -1,5 +1,5 @@
 <template>
-      <div class="container border" @click="openArticle(article.url)">
+      <div class="container" @click="openArticle(article.url)">
         <div class="header">
             <img
             v-if="article.multimedia"
@@ -38,48 +38,12 @@ export default {
 
 <style lang='scss' scoped>
 .container {
+  border: 2px solid $black;
   display: flex;
   flex-direction: column;
-  width: 210px;
-  margin: 2em;
+  width: 214px;
   align-items: center;
-  animation: boxShadowOut 0.5s ease-out;
-
-  &:hover {
-    animation: boxShadowIn 0.5s ease-out forwards;
-  }
-
-  @keyframes boxShadowIn {
-    from {
-      box-shadow: 0px 0px 0px 0px rgba(184, 184, 184, 0);
-    }
-    to {
-      box-shadow: 0px 0px 30px 0px rgba(184, 184, 184, 0.5);
-    }
-  }
-  @keyframes boxShadowOut {
-    0% {
-      box-shadow: 0px 0px 0px 0px rgba(184, 184, 184, 0.5);
-    }
-    100% {
-      box-shadow: 0px 0px 30px 0px rgba(184, 184, 184, 0);
-    }
-  }
-
-  // for border animation
-  position: relative;
-  vertical-align: middle;
-
-  &::before,
-  &::after {
-    box-sizing: inherit;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  // --end border animation req
+  margin: 2em;
 
   .header {
     position: relative;
@@ -122,7 +86,6 @@ export default {
     width: 100%;
     text-align: center;
     padding: 0.5em 1em;
-    border-bottom: 2px solid black;
 
     p {
       font-weight: 300;
@@ -130,40 +93,18 @@ export default {
     }
   }
 }
-.border {
-  cursor: pointer;
-  color: $black;
-  &::before,
-  &::after {
-    z-index: -1;
-    border: 2px solid transparent;
-    border-top: none;
+
+@media (max-width: 499px) {
+  .container {
+    width: 100%;
+    margin: 2em 0;
   }
 
-  @keyframes borderIn {
-    0% {
-      border-right-color: $black;
-      border-left-color: $black;
-      height: 0;
+  .header {
+    width: 100%;
+    img {
+      width: 100%;
     }
-    100% {
-      height: 100%;
-    }
-  }
-
-  &::before {
-    bottom: 0;
-    right: 0;
-  }
-
-  &::after {
-    bottom: 0;
-    left: 0;
-  }
-
-  &:hover::before,
-  &:hover::after {
-    animation: borderIn 0.5s ease-out;
   }
 }
 </style>

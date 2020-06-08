@@ -1,15 +1,21 @@
 <template>
 <div class="custom-select-wrapper">
     <div class="custom-select" :class="{'open':isOpen}">
-        <div class="custom-select__trigger" @click="open"><span>arts</span>
+        <div class="custom-select__trigger" @click="open">
+            <span>--select--</span>
             <div class="arrow"></div>
         </div>
         <div class="custom-options">
-            <span class="custom-option"
-            v-for="(section, index) in sections" :key="index"
-            @click="select"
-            >
-            {{section}}
+            <span
+              v-for="section in sections"
+              :key="section"
+              @click="select">
+                <router-link
+                class="custom-option"
+                :title="'View Top Stories in section'"
+                :to="{name: 'section', params: {section: section}, meta: {title: section}}"
+                >{{section}}
+                </router-link>
             </span>
         </div>
     </div>
@@ -17,14 +23,11 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 
 export default {
   data () {
     return {
-      sections: [
-        'arts', 'automobiles', 'books', 'business', 'fashion', 'food', 'health', 'home', 'insider', 'magazine', 'movies', 'nyregion', 'obituaries', 'opinion', 'politics', 'realestate', 'science', 'sports', 'sundayreview', 'technology', 'theater', 't-magazine', 'travel', 'upshot', 'us', 'world'
-      ],
+      sections: this.$store.state.sections,
       isOpen: false
     }
   },
@@ -34,7 +37,6 @@ export default {
     },
     select (e) {
       const selection = e.target
-      this.fetchNewsData(selection.innerText)
       if (!selection.classList.contains('selected')) {
         if (selection.parentNode.querySelector('.custom-option.selected')) {
           selection.parentNode.querySelector('.custom-option.selected').classList.remove('selected')
@@ -43,17 +45,17 @@ export default {
         selection.closest('.custom-select')
           .querySelector('.custom-select__trigger span')
           .textContent = selection.textContent
-        this.open()
-      } else {
-        this.open()
       }
-    },
-    ...mapActions(['fetchNewsData'])
+      this.open()
+    }
   }
 }
 </script>
 
 <style lang='scss' scoped>
+a {
+  text-decoration: none;
+}
 .custom-select-wrapper {
   position: relative;
   user-select: none;
@@ -89,6 +91,7 @@ export default {
 }
 
 .custom-options {
+  display: inline-block;
   height: 50vh;
   overflow: scroll;
   width: 100%;

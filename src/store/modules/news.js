@@ -10,7 +10,7 @@ export default {
     }
   },
   actions: {
-    async fetchNewsData ({ commit }, section) {
+    async fetchNewsData ({ commit }, section = 'home') {
       const URL = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=4GhbfMEL630l9Lw7NWcGAPd7J3cf5Ewx`
       const res = await window.fetch(URL)
       const data = await res.json()

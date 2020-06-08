@@ -1,37 +1,22 @@
 <template>
   <div id="app">
-    <Header />
+    <Header class="app-header" />
     <Search />
-    <div class="cards-container">
-      <NewsCard
-        v-for="(article, index) in getNewsData.results"
-        :key="index"
-        :article="article"
-      />
-    </div>
-  <Footer />
+    <router-link :to='{name: "home"}' />
+    <router-link :to='{name: "section"}' />
+    <router-view :key='$route.path'/>
+    <Footer class="app-footer" />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
-import Search from './components/Search'
-import NewsCard from './components/NewsCard'
 import Footer from './components/Footer'
-
-import { mapActions, mapGetters } from 'vuex'
+import Search from './components/Search'
 
 export default {
-  name: 'App',
   components: {
-    Header, Search, NewsCard, Footer
-  },
-  methods: {
-    ...mapActions(['fetchNewsData'])
-  },
-  computed: mapGetters(['getNewsData']),
-  mounted () {
-    this.fetchNewsData('arts')
+    Header, Footer, Search
   }
 }
 </script>
@@ -45,31 +30,14 @@ export default {
   box-sizing: border-box;
 }
 #app {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   font-family: Roboto, sans-serif;
 }
-
-header {
+.app-header {
   position: sticky;
   top: 0;
   z-index: 2;
 }
-
-.cards-container {
-  display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 500px) {
-  .cards-container {
-    width: 90vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: space-around;
-  }
+.app-footer {
 }
 </style>
