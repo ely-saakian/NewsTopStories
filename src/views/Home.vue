@@ -12,7 +12,7 @@ export default {
   methods: {
     ...mapActions(['fetchNewsData'])
   },
-  mounted () {
+  created () {
     this.fetchNewsData()
   }
 }
