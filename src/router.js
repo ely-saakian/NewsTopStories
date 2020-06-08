@@ -4,6 +4,7 @@ import Home from './views/Home'
 
 Vue.use(Router)
 export const router = new Router({
+  base: '/NewsTopStories/',
   mode: 'history',
   routes: [
     {
