@@ -4,17 +4,18 @@ import Home from './views/Home'
 
 Vue.use(Router)
 export const router = new Router({
-  base: '/NewsTopStories/',
   mode: 'history',
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      props: true
     },
     {
       path: '/:section',
       name: 'section',
+      props: true,
       component: () => import(/* webpackChunkName: "Section" */ './views/Section')
     }
   ]

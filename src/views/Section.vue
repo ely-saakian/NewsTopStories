@@ -23,11 +23,18 @@ export default {
   methods: {
     ...mapActions(['fetchNewsData'])
   },
+  props: {
+    section: {
+      type: String,
+      required: true
+    }
+  },
+  created () {
+    this.fetchNewsData(this.section)
+  },
   mounted () {
-    let section = this.$route.params.section
-    if (section) section = section.replace(section.slice(0, 1), section[0].toUpperCase())
-    document.title = section ? 'Stories in ' + section : 'Homepage'
-    this.fetchNewsData(section)
+    if (this.section) this.section = this.section.replace(this.section.slice(0, 1), this.section[0].toUpperCase())
+    document.title = this.section ? 'Stories in ' + this.section : 'Homepage'
   },
   updated () {
     this.$redrawVueMasonry()

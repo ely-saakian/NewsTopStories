@@ -13,7 +13,7 @@
                 <router-link
                 class="custom-option"
                 :title="'View Top Stories in section'"
-                :to="{name: 'section', params: {section: section}, meta: {title: section}}"
+                :to="{name: 'section', params: {section}}"
                 >{{section}}
                 </router-link>
             </span>
