@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <Header class="app-header" />
-    <Search />
     <router-link :to='{name: "home"}' />
-    <router-link :to='{name: "section"}' />
     <router-view :key='$route.path'/>
     <Footer class="app-footer" />
   </div>
@@ -12,11 +10,16 @@
 <script>
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Search from './components/Search'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
-    Header, Footer, Search
+    Header, Footer
+  },
+  methods: mapActions(['fetchNewsData', 'setCurrentSection']),
+  mounted () {
+    if (this.$route.query.name && this.$store.state.sections.includes(this.$route.query.name)) { this.setCurrentSection(this.$route.query.name) }
+    this.fetchNewsData()
   }
 }
 </script>

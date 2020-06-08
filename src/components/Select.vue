@@ -2,7 +2,7 @@
 <div class="custom-select-wrapper">
     <div class="custom-select" :class="{'open':isOpen}">
         <div class="custom-select__trigger" @click="open">
-            <span>--select--</span>
+            <span :key="getCurrentSection">{{getCurrentSection}}</span>
             <div class="arrow"></div>
         </div>
         <div class="custom-options">
@@ -13,7 +13,7 @@
                 <router-link
                 class="custom-option"
                 :title="'View Top Stories in section'"
-                :to="{name: 'section', params: {section}}"
+                :to="{name: 'home', query: {name: section}}"
                 >{{section}}
                 </router-link>
             </span>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -31,12 +32,14 @@ export default {
       isOpen: false
     }
   },
+  computed: mapGetters(['getCurrentSection']),
   methods: {
     open () {
       this.isOpen = !this.isOpen
     },
     select (e) {
       const selection = e.target
+      this.setCurrentSection(selection.innerText)
       if (!selection.classList.contains('selected')) {
         if (selection.parentNode.querySelector('.custom-option.selected')) {
           selection.parentNode.querySelector('.custom-option.selected').classList.remove('selected')
@@ -47,7 +50,8 @@ export default {
           .textContent = selection.textContent
       }
       this.open()
-    }
+    },
+    ...mapActions(['setCurrentSection'])
   }
 }
 </script>

@@ -38,12 +38,18 @@ export default {
 
 <style lang='scss' scoped>
 .container {
-  border: 2px solid $black;
+  border: 1px solid $black;
   display: flex;
   flex-direction: column;
-  width: 214px;
+  width: 212px;
   align-items: center;
   margin: 2em;
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $black;
+    width: 214px;
+  }
 
   .header {
     position: relative;

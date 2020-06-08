@@ -1,7 +1,6 @@
 <template>
     <footer>
         <p>Copyright &copy; Ely Saakian {{new Date().getFullYear()}}</p>
-        <p>Powered by NYT API</p>
     </footer>
 </template>
 
