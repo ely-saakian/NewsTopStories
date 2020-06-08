@@ -47,8 +47,6 @@ export default {
 
   &:hover {
     cursor: pointer;
-    border: 2px solid $black;
-    width: 214px;
   }
 
   .header {
