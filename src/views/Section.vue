@@ -28,6 +28,11 @@ export default {
   updated () {
     document.title = 'Stories in ' + this.getCurrentSection
     this.$redrawVueMasonry()
+  },
+  mounted () {
+    this.$Lazyload.$on('loaded', () => {
+      this.$redrawVueMasonry()
+    })
   }
 }
 </script>

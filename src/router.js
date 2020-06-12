@@ -4,7 +4,7 @@ import Section from './views/Section'
 
 Vue.use(Router)
 export const router = new Router({
-  base: '/NewsTopStories/',
+  base: (process.env.NODE_ENV === 'development') ? '' : '/NewsTopStories/',
   mode: 'history',
   routes: [
     {
