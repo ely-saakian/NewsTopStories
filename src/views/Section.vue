@@ -1,9 +1,8 @@
 <template>
   <div>
     <Search />
-    <div class="cards-container" v-masonry fit-width="true" item-selector=".container">
+    <div class="cards-container">
       <NewsCard
-        v-masonry-tile
         v-for="(article, index) in getNewsData.results"
         :key="index"
         :article="article"
@@ -27,12 +26,6 @@ export default {
   },
   updated () {
     document.title = 'Stories in ' + this.getCurrentSection
-    this.$redrawVueMasonry()
-  },
-  mounted () {
-    this.$Lazyload.$on('loaded', () => {
-      this.$redrawVueMasonry()
-    })
   }
 }
 </script>
@@ -51,6 +44,7 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
+    justify-content: space-around;
   }
 }
 </style>

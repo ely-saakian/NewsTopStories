@@ -56,7 +56,7 @@ export default {
 
     .section-name {
       text-transform: uppercase;
-      background-color: black;
+      background-color: #305c91;
       color: white;
       position: absolute;
       bottom: 0;
