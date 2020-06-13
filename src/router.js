@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Section from './views/Section'
+import Home from './views/Home'
+import ViewNews from './views/ViewNews'
 
 Vue.use(Router)
 export const router = new Router({
@@ -10,7 +11,12 @@ export const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Section
+      component: Home
+    },
+    {
+      path: '/section',
+      name: 'section',
+      component: ViewNews
     }
   ]
 })
