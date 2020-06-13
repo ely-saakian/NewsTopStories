@@ -9,8 +9,8 @@
         <router-link :to='{name: "section"}' />
         <router-view />
       </v-main>
-      <v-footer app>
-        Footer
+      <v-footer color="black" class='d-flex justify-center' absolute dark app>
+        &copy; Ely Saakian 2020
       </v-footer>
     </v-app>
   </div>

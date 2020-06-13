@@ -11,7 +11,7 @@
           </v-progress-circular>
         </v-overlay>
         <v-row justify=center>
-            <v-col cols=6>
+            <v-col cols=12 md="6">
               <v-row justify=center align=center>
                 <p class="ma-0 text-h6 center">View top stories in:</p>
                 <SectionSelect />
