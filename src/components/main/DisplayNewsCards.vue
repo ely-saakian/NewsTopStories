@@ -13,18 +13,17 @@
         <v-row justify=center>
             <v-col cols=12 md="6">
               <v-row justify=center align=center>
-                <p class="ma-0 text-h6 center">View top stories in:</p>
-                <SectionSelect />
+                <p class="ma-0 text-h6 center">TOP stories in <span class="text-uppercase">{{$store.state.news.currentSection}}</span></p>
               </v-row>
             </v-col>
         </v-row>
         <v-row
             justify="space-between"
             class="flex-wrap"
-            v-if="NewsData"
+            v-if="newsData"
         >
             <VerticalNewsCard
-            v-for="article in NewsData"
+            v-for="article in newsData"
             :key="article.uri"
             :article="article"
             />
@@ -34,16 +33,15 @@
 
 <script>
 import VerticalNewsCard from './VerticalNewsCard'
-import SectionSelect from '../SectionSelect'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    VerticalNewsCard, SectionSelect
+    VerticalNewsCard
   },
   computed: {
     isLoading () { return this.$store.state.news.isLoading },
-    ...mapGetters(['NewsData'])
+    ...mapGetters(['newsData'])
   }
 }
 </script>

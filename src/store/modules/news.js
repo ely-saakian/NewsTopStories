@@ -3,14 +3,18 @@ export default {
     isLoading: false,
     newsData: {
     },
-    currentSection: 'home'
+    currentSection: 'home',
+    currentSectionIndex: null
   },
   getters: {
-    NewsData (state) {
+    newsData (state) {
       return state.newsData.results
     },
-    CurrentSection (state) {
+    currentSection (state) {
       return state.currentSection
+    },
+    currentSectionIndex (state) {
+      return state.currentSectionIndex
     }
   },
   actions: {
@@ -21,10 +25,9 @@ export default {
         commit('setNewsData', data)
       })
     },
-    setCurrentSection ({ commit, dispatch }, section = 'home') {
-      commit('setCurrentSection', section)
+    setCurrentSection ({ commit, dispatch }, section = window.localStorage.getItem('currentSection') || 'home') {
+      commit('setCurrentSection', { section })
       dispatch('fetchNewsData')
-      this.isLoading = true
     }
   },
   mutations: {
@@ -32,7 +35,8 @@ export default {
       state.newsData = newsData
       state.isLoading = false
     },
-    setCurrentSection (state, section) {
+    setCurrentSection (state, { section }) {
+      window.localStorage.setItem('currentSection', section)
       state.currentSection = section
     }
   }

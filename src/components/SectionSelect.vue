@@ -5,10 +5,11 @@
         outlined
         filled
         hide-details
+        :value="$store.state.news.currentSection"
         :items="getSections"
         :item-text="getSections"
         :item-value="getSections"
-        label="Please make a selection"
+        label="Please select a section"
     >
     </v-select>
 </template>
@@ -24,7 +25,6 @@ export default {
     ...mapActions(['setCurrentSection']),
     select (selection) {
       this.setCurrentSection(selection)
-      this.$router.push({ name: 'section' })
     }
   }
 }

@@ -12,9 +12,14 @@
                 <v-card-title>
                     {{title}}
                 </v-card-title>
-                <v-card-subtitle class="pt-2">
-                    {{byline}}
-                </v-card-subtitle>
+                <v-row class="px-3" justify='space-between' align=center>
+                    <v-card-subtitle>
+                        {{byline}}
+                    </v-card-subtitle>
+                    <v-subheader>
+                        {{publishedDate}}
+                    </v-subheader>
+                </v-row>
                 <v-img
                     v-if="imgLarge === null"
                     src="../../assets/NoImage.jpg"
@@ -49,6 +54,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   props: ['article'],
   data () {
@@ -58,6 +65,7 @@ export default {
       title: this.article.title,
       abstract: this.article.abstract,
       byline: this.article.byline,
+      publishedDate: moment(this.article.published_date).fromNow(),
       imgLarge: this.article.multimedia ? this.article.multimedia[0].url : null,
       imgSmall: this.article.multimedia ? this.article.multimedia[3].url : null
     }

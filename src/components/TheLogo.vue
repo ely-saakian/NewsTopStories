@@ -1,5 +1,5 @@
 <template>
-  <v-img max-width="300px" src="../assets/NewYorkTimes.svg" />
+  <v-img src="../assets/NewYorkTimes.svg" />
 </template>
 
 <script>
