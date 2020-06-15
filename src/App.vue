@@ -9,7 +9,7 @@
         <v-app-bar-nav-icon @click.stop="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
         <v-container fluid>
             <v-row justify="center">
-              <v-col cols=6 sm=4>
+              <v-col cols=6 sm=3>
                   <router-link :to="{name: 'home'}"><TheLogo /></router-link>
               </v-col>
             </v-row>
