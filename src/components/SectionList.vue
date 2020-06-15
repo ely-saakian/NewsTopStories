@@ -4,11 +4,11 @@
         <v-list-item-group>
             <v-list-item
               :to="{name: 'section', params: {section}}"
-              v-for="section in getSections"
+              v-for="[section, name] in getSections"
               :key="section"
-              @click="setCurrentSection(section)"
+              @click="setCurrentSection({section, name})"
               >
-               {{section}}
+               {{name}}
             </v-list-item>
         </v-list-item-group>
     </v-list>

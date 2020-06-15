@@ -60,7 +60,7 @@ export default {
   props: ['article'],
   data () {
     return {
-      section: this.article.section,
+      section: this.$store.state.news.currentSection.name,
       url: this.article.url,
       title: this.article.title,
       abstract: this.article.abstract,

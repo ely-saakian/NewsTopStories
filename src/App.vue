@@ -9,7 +9,7 @@
         <v-app-bar-nav-icon @click.stop="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
         <v-container fluid>
             <v-row justify="center">
-              <v-col cols=6 sm=3>
+              <v-col cols=6 sm=3 class="pa-0">
                   <router-link :to="{name: 'home'}"><TheLogo /></router-link>
               </v-col>
             </v-row>
@@ -45,7 +45,7 @@ export default {
     ...mapActions(['setCurrentSection'])
   },
   created () {
-    this.setCurrentSection('home')
+    this.setCurrentSection({ section: 'home', name: 'Home' })
     this.$router.push({ name: 'home' })
   }
 }

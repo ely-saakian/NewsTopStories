@@ -13,7 +13,7 @@
         <v-row justify=center>
             <v-col cols=12 md="6">
               <v-row justify=center align=center>
-                <p class="ma-0 text-h6 center">TOP stories in <span class="text-uppercase">{{$store.state.news.currentSection}}</span></p>
+                <p class="ma-0 text-h6 center">TOP stories in <span class="font-weight-light font-italic">{{$store.state.news.currentSection.name}}</span></p>
               </v-row>
             </v-col>
         </v-row>
