@@ -78,7 +78,7 @@ export default {
   data () {
     return {
       isAdded: false,
-      section: this.$store.state.news.currentSection.name,
+      section: this.article.section,
       url: this.article.url,
       title: this.article.title,
       abstract: this.article.abstract,

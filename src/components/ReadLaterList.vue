@@ -9,7 +9,7 @@
         >
         <v-list-item-content>
             <v-list-item-title v-text="article.title"></v-list-item-title>
-            <v-list-item-subtitle v-text="article.section" class="text-caption"></v-list-item-subtitle>
+            <v-list-item-subtitle v-text="article.section" class="my-2 font-weight-bold text-caption"></v-list-item-subtitle>
             <v-list-item-subtitle v-text="article.abstract"></v-list-item-subtitle>
         </v-list-item-content>
 

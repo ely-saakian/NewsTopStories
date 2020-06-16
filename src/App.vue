@@ -24,7 +24,7 @@
         </v-badge>
       </v-app-bar>
 
-      <v-navigation-drawer width=300 right app v-model="isReadLaterDrawerOpen">
+      <v-navigation-drawer :width="ReadListWidth" right app v-model="isReadLaterDrawerOpen">
         <ReadLaterList />
       </v-navigation-drawer>
 
@@ -49,6 +49,7 @@ import { mapActions } from 'vuex'
 export default {
   data () {
     return {
+      ReadListWidth: this.$vuetify.breakpoint.name === 'xs' ? '300' : '350',
       isReadingListEmpty: null,
       isSectionListDrawerOpen: null,
       isReadLaterDrawerOpen: false
