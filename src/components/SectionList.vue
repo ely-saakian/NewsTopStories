@@ -1,6 +1,9 @@
 <template>
     <v-list dense>
-        <v-subheader>SECTIONS</v-subheader>
+        <v-subheader>
+          <v-icon small left>mdi-newspaper</v-icon>
+          SECTIONS
+        </v-subheader>
         <v-list-item-group>
             <v-list-item
               :to="{name: 'section', params: {section}}"
@@ -8,8 +11,17 @@
               :key="section"
               @click="setCurrentSection({section, name})"
               >
-               {{name}}
+               <v-list-item-content>
+                 {{name}}
+               </v-list-item-content>
             </v-list-item>
+        </v-list-item-group>
+        <v-list-item-group>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
         </v-list-item-group>
     </v-list>
 </template>

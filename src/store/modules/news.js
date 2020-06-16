@@ -1,8 +1,7 @@
 export default {
   state: {
     isLoading: false,
-    newsData: {
-    },
+    newsData: [],
     currentSection: {
       section: null,
       name: null
@@ -11,7 +10,7 @@ export default {
   },
   getters: {
     newsData (state) {
-      return state.newsData.results
+      return state.newsData
     },
     currentSection (state) {
       return state.currentSection
@@ -28,18 +27,17 @@ export default {
         commit('setNewsData', data)
       })
     },
-    setCurrentSection ({ commit, dispatch }, section = window.localStorage.getItem('currentSection') || { section: 'home', name: 'Home' }) {
+    setCurrentSection ({ commit, dispatch }, section = { section: 'home', name: 'Home' }) {
       commit('setCurrentSection', section)
       dispatch('fetchNewsData')
     }
   },
   mutations: {
     setNewsData (state, newsData) {
-      state.newsData = newsData
+      state.newsData = newsData.results.sort((a, b) => a.published_date < b.published_date ? 1 : -1)
       state.isLoading = false
     },
     setCurrentSection (state, section) {
-      window.localStorage.setItem('currentSection', section)
       state.currentSection.section = section.section
       state.currentSection.name = section.name
     }
