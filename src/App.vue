@@ -62,6 +62,7 @@ export default {
     ...mapActions(['setCurrentSection'])
   },
   created () {
+    document.title = 'Top Stories NYT'
     const readingList = JSON.parse(localStorage.getItem('readingList')) || []
     localStorage.setItem('readingList', JSON.stringify(readingList))
     this.setCurrentSection({ section: 'home', name: 'Home' })
