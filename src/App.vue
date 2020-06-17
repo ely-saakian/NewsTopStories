@@ -11,7 +11,7 @@
         </v-app-bar-nav-icon>
         <v-container fluid>
             <v-row justify="center">
-              <v-col cols=6 sm=3>
+              <v-col cols=8 sm=3>
                   <router-link :to="{name: 'home'}"><TheLogo /></router-link>
               </v-col>
             </v-row>

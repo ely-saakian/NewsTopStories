@@ -33,15 +33,25 @@
         <v-img
             v-else
             :src="imgLarge"
-            :lazy-src="imgSmall"
+            min-height="200"
         >
-            <v-chip
-                label
-                class="rounded-0 black white--text"
-                style="position:absolute; bottom: 0"
-            >
-                {{section}}
-            </v-chip>
+          <template v-slot:placeholder>
+          <v-row
+
+            class="fill-height ma-0 grey lighten-5"
+            align="center"
+            justify="center"
+          >
+            <v-progress-circular class="absolute" indeterminate color="grey"></v-progress-circular>
+          </v-row>
+        </template>
+        <v-chip
+            label
+            class="rounded-0 black white--text"
+            style="position:absolute; bottom: 0"
+        >
+            {{section}}
+        </v-chip>
         </v-img>
 
         <v-card-text class="text-subtitle-1 black--text font-weight-regular">
@@ -68,7 +78,7 @@ export default {
   methods: {
     addToReadingList () {
       let readingList = JSON.parse(localStorage.getItem('readingList')) || []
-      this.isAdded ? console.log('already added') : readingList = [...readingList, this.article]
+      if (!this.isAdded) readingList = [...readingList, this.article]
       this.isAdded = !this.isAdded
       localStorage.setItem('readingList', JSON.stringify(readingList))
       eventBus.$emit('addToReadingList')
