@@ -36,15 +36,15 @@
             min-height="200"
         >
           <template v-slot:placeholder>
-          <v-row
+            <v-row
 
-            class="fill-height ma-0 grey lighten-5"
-            align="center"
-            justify="center"
-          >
-            <v-progress-circular class="absolute" indeterminate color="grey"></v-progress-circular>
-          </v-row>
-        </template>
+              class="fill-height ma-0 grey lighten-5"
+              align="center"
+              justify="center"
+            >
+              <v-progress-circular class="absolute" indeterminate color="grey"></v-progress-circular>
+            </v-row>
+          </template>
         <v-chip
             label
             class="rounded-0 black white--text"

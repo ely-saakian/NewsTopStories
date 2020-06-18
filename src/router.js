@@ -5,6 +5,9 @@ import ViewHome from './views/ViewHome'
 
 Vue.use(Router)
 export const router = new Router({
+  scrollBehavior (to, from, savedPosition) {
+    document.getElementById('app').scrollIntoView()
+  },
   base: (process.env.NODE_ENV === 'development') ? '' : '/NewsTopStories/',
   routes: [
     {

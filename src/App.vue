@@ -9,7 +9,7 @@
         <v-app-bar-nav-icon @click.stop="isSectionListDrawerOpen = !isSectionListDrawerOpen">
           <v-icon v-if="isSectionListDrawerOpen">mdi-menu-open</v-icon>
         </v-app-bar-nav-icon>
-        <v-container fluid>
+        <v-container id="top" fluid>
             <v-row justify="center">
               <v-col cols=8 sm=3>
                   <router-link :to="{name: 'home'}"><TheLogo /></router-link>
@@ -78,4 +78,7 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+  scroll-behavior: smooth;
+}
 </style>
